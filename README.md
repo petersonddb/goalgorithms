@@ -1,3 +1,3 @@
-# Go Algorithms and Data Structures
+# Go Algorithms
 
-All algorithms and data structures implemented in Go.
+Many algorithms implemented in Go.
