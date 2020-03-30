@@ -35,7 +35,9 @@ RUN apt-get update \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /home/$USERNAME/go/src \
+    && chown -R $USER_UID:$USER_UID /home/$USERNAME/go
 #
 # Sign in new user
 USER $USER_UID

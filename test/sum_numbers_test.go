@@ -1,13 +1,13 @@
 package test
 
 import (
-	"algorithms"
+	"goalgorithms"
 	"testing"
 )
 
 func TestSumNumbers(t *testing.T) {
 	var (
-		myAlgorithms = algorithms.Algorithms{}
+		myAlgorithms = goalgorithms.Algorithms{}
 		cases        = []struct {
 			numbers []float32
 			want    float32

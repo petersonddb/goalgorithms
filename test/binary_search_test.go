@@ -1,12 +1,12 @@
 package test
 
 import (
-	"algorithms"
+	"goalgorithms"
 	"testing"
 )
 
 func TestBinarySearch(t *testing.T) {
-	myAlgorithms := algorithms.Algorithms{}
+	myAlgorithms := goalgorithms.Algorithms{}
 	cases := []struct {
 		numbers []int
 		key     int

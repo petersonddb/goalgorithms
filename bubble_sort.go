@@ -1,4 +1,4 @@
-package algorithms
+package goalgorithms
 
 // BubbleSort sorts a collection of numbers
 func (a Algorithms) BubbleSort(numbers []int) {

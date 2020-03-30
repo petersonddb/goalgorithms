@@ -1,12 +1,12 @@
 package test
 
 import (
-	"algorithms"
+	"goalgorithms"
 	"testing"
 )
 
 func TestBubbleSort(t *testing.T) {
-	myAlgorithms := algorithms.Algorithms{}
+	myAlgorithms := goalgorithms.Algorithms{}
 	cases := []struct {
 		unsortedNumbers []int
 		toSortNumbers   []int

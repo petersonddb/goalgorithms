@@ -1,4 +1,4 @@
-package algorithms
+package goalgorithms
 
 // BinarySearch searches the key position inside the numbers collection
 func (a Algorithms) BinarySearch(numbers []int, key int) int {

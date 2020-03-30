@@ -1,4 +1,4 @@
-package algorithms
+package goalgorithms
 
 import "math"
 

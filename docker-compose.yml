@@ -4,4 +4,4 @@ services:
   app:
     build: .
     volumes:
-      - .:/home/vscode/go/algorithms
+      - .:/home/vscode/go/src/goalgorithms
