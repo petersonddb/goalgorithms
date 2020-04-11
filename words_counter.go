@@ -1,18 +1,27 @@
 package goalgorithms
 
+type positionStatus int
+
+const (
+	out positionStatus = iota
+	in
+)
+
 // WordsCounter counts the number of occurrences for each word from the phrase
 func (a Algorithms) WordsCounter(phrase string, counter map[string]int) {
-	for i := 0; i < len(phrase); i++ {
-		for ; i < len(phrase) && isDelimiter(phrase[i]); i++ {
-		}
+	var first int
+	status := out
+	n := len(phrase)
 
-		if i < len(phrase) {
-			first := i
-
-			for ; i < len(phrase) && !isDelimiter(phrase[i]); i++ {
+	for i := 0; i <= n; i++ {
+		if i == n || isDelimiter(phrase[i]) {
+			if status == in {
+				status = out
+				counter[phrase[first:i]]++
 			}
-
-			counter[phrase[first:i]]++
+		} else if status == out {
+			status = in
+			first = i
 		}
 	}
 }
