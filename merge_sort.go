@@ -15,33 +15,29 @@ func (a Algorithms) MergeSort(collection []int) {
 
 		collectionSorted = merge(collectionA, collectionB)
 
-		for k := 0; k < len(collectionSorted); k++ {
-			collection[k] = collectionSorted[k]
-		}
+		copy(collection, collectionSorted)
 	}
 }
 
 func merge(collectionA []int, collectionB []int) []int {
 	na, nb := len(collectionA), len(collectionB)
-	collectionSorted := make([]int, na+nb)
-	i, j := 0, 0
+	n := na + nb
+	collectionSorted := make([]int, n)
 
-	for i < na && j < nb {
-		if collectionA[i] > collectionB[j] {
-			collectionSorted[i+j] = collectionB[j]
+	for i, j, k := 0, 0, 0; k < n; k++ {
+		if i >= na {
+			collectionSorted[k] = collectionB[j]
+			j++
+		} else if j >= nb {
+			collectionSorted[k] = collectionA[i]
+			i++
+		} else if collectionA[i] > collectionB[j] {
+			collectionSorted[k] = collectionB[j]
 			j++
 		} else {
-			collectionSorted[i+j] = collectionA[i]
+			collectionSorted[k] = collectionA[i]
 			i++
 		}
-	}
-
-	for ; i < na; i++ {
-		collectionSorted[i+j] = collectionA[i]
-	}
-
-	for ; j < nb; j++ {
-		collectionSorted[i+j] = collectionB[j]
 	}
 
 	return collectionSorted

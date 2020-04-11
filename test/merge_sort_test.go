@@ -37,6 +37,15 @@ func TestMergeSort(t *testing.T) {
 	for _, c := range cases {
 		myAlgorithms.MergeSort(c.toSortNumbers)
 
+		if len(c.want) != len(c.toSortNumbers) {
+			t.Errorf(
+				"len(MergeSort(%v)) == %d, want %d",
+				c.unsortedNumbers,
+				len(c.unsortedNumbers),
+				len(c.want),
+			)
+		}
+
 		for i := 0; i < len(c.want); i++ {
 			if c.want[i] != c.toSortNumbers[i] {
 				t.Errorf(
