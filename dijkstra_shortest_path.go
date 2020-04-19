@@ -9,13 +9,15 @@ const (
 
 // DijkstraShortestPath calculates the shortest path
 // from a src to every destination in a region map
-func (a Algorithms) DijkstraShortestPath(regionMap [][]int64, src int, dst int) []int64 {
+func (a Algorithms) DijkstraShortestPath(regionMap [][]int64, src int, dst int) ([]int64, []int) {
 	n := len(regionMap)
 	distances := make([]int64, n)
+	previous := make([]int, n)
 	visited := make([]bool, n)
 
-	for i := 0; i < len(distances); i++ {
+	for i := 0; i < n; i++ {
 		distances[i] = math.MaxInt64
+		previous[i] = noOne
 	}
 	distances[src] = 0
 
@@ -34,11 +36,12 @@ func (a Algorithms) DijkstraShortestPath(regionMap [][]int64, src int, dst int) 
 			distance := distances[target] + regionMap[target][adj]
 			if distance < distances[adj] {
 				distances[adj] = distance
+				previous[adj] = target
 			}
 		}
 	}
 
-	return distances
+	return distances, previous
 }
 
 func nextMinNotVisited(distances []int64, visited []bool) int {
